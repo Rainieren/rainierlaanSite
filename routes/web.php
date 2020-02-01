@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $packagist = new \Spatie\Packagist\Packagist(new \GuzzleHttp\Client());
+    return view('welcome', compact('packagist'));
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('api/packages/get', 'PackagesController@get')->name('get_packages');

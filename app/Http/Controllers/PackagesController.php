@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Package;
 use Illuminate\Http\Request;
 
 class PackagesController extends Controller
@@ -80,5 +81,14 @@ class PackagesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function get()
+    {
+        return response()
+            ->json(Package::all());
     }
 }

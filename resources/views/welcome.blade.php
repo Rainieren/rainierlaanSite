@@ -94,6 +94,16 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+{{--                {{ $packages = $packagist->getPackagesByVendor('rainieren') }}--}}
+                @foreach($packagist->getPackagesByVendor('rainieren') as $package)
+                    <p>Package name is: {{ $package[0] }}</p>
+                    <p>Package description is: {{ $packagist->findPackageByName($package[0])["package"]["description"] }}</p>
+                    <p>Times downloaded: {{ $packagist->findPackageByName($package[0])["package"]["downloads"]["total"] }}</p>
+                    <pre>
+                         {{ dd($packagist->findPackageByName($package[0])) }}
+                    </pre>
+
+                @endforeach
             </div>
         </div>
     </body>
