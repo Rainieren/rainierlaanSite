@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('api/packages/get', 'PackagesController@get')->name('get_packages');
+Route::get('api/packages', 'PackagesController@index');
+

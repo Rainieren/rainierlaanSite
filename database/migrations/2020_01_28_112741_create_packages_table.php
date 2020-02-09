@@ -16,11 +16,12 @@ class CreatePackagesTable extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('creator');
             $table->longText('description');
             $table->integer('subscription_id')->nullable();
             $table->double('price')->nullable();
             $table->string('composer_package');
-            $table->integer('downloaded')->default(0);
+            $table->integer('downloads')->default(0);
             $table->timestamps();
         });
     }

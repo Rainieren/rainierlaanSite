@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Package;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Spatie\Packagist\Packagist;
 
 class PackagesController extends Controller
 {
@@ -14,7 +16,13 @@ class PackagesController extends Controller
      */
     public function index()
     {
-        //
+        $packagist = new Packagist(new Client());
+
+        foreach ($packagist->getPackagesByVendor('spatie') as $package) {
+            $keys = array_keys($packagist->findPackageByName($package[0])['package']['versions']);
+            dd($keys);
+            dd($keys[2]);
+        }
     }
 
     /**
