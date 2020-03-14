@@ -2,28 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Package;
-use GuzzleHttp\Client;
+use App\Plan;
 use Illuminate\Http\Request;
-use Spatie\Packagist\Packagist;
 
-class PackagesController extends Controller
+class PlanController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * @throws \Exception
      */
     public function index()
     {
-        $packagist = new Packagist(new Client());
-
-        foreach ($packagist->getPackagesByVendor('spatie') as $package) {
-            $keys = array_keys($packagist->findPackageByName($package[0])['package']['versions']);
-            dd($keys);
-            dd($keys[2]);
-        }
+        //
     }
 
     /**
@@ -44,7 +35,15 @@ class PackagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $plan = new Plan();
+
+        $plan->name = $request->name;
+        $plan->price = $request->price;
+
+        $plan->save();
+
+        return back();
     }
 
     /**
@@ -90,14 +89,5 @@ class PackagesController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function get()
-    {
-        return response()
-            ->json(Package::all());
     }
 }

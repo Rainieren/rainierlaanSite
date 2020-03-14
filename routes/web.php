@@ -20,6 +20,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/plan/store', 'PlanController@store')->name('store_plan');
+Route::post('/subscribe', 'SubscriptionController@store')->name('subscribe');
+
 
 Route::get('api/packages/get', 'PackagesController@get')->name('get_packages');
 Route::get('api/packages', 'PackagesController@index');

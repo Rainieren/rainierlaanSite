@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePackagesTable extends Migration
+class CreatePlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,10 @@ class CreatePackagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('plans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('creator');
-            $table->longText('description');
-            $table->integer('subscription_id')->nullable();
             $table->double('price')->nullable();
-            $table->string('composer_package');
-            $table->integer('downloads')->default(0);
-            $table->integer('category_id')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ class CreatePackagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('plans');
     }
 }
