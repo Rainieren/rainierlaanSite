@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Spatie\Packagist\Packagist;
 
 class PackagesTableSeeder extends Seeder
@@ -27,6 +28,7 @@ class PackagesTableSeeder extends Seeder
                 'price' => 0.99,
                 'composer_package' => $package[0],
                 'downloads' => $packagist->findPackageByName($package[0])["package"]["downloads"]["total"],
+                'token' => Str::random(32),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);

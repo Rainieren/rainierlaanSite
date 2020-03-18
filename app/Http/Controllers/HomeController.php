@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Package;
+use App\Plan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $packages = Package::all();
+        $plans = Plan::all();
+        return view('home', compact('packages', 'plans'));
     }
 }

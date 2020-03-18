@@ -1,0 +1,20 @@
+@import "../base/variables"
+@import "../base/mixins"
+
+.navbar
+    height: 70px
+    .navbar-collapse
+        .navbar-nav
+            .nav-item
+                display: flex
+                flex-direction: column
+                justify-content: center
+                .nav-link
+                    color: $primary_main
+                    transition: .3s all
+                    font-family: "Muli Semi-bold"
+                    font-size: 16px
+                    &:hover
+                        color: $primary_hover
+                        transition: .3s all
+

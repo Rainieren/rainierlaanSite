@@ -100,4 +100,9 @@ class PackagesController extends Controller
         return response()
             ->json(Package::all());
     }
+
+    public function purchase()
+    {
+        return "Het koopscherm";
+    }
 }

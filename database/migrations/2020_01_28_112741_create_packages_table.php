@@ -23,6 +23,7 @@ class CreatePackagesTable extends Migration
             $table->string('composer_package');
             $table->integer('downloads')->default(0);
             $table->integer('category_id')->nullable();
+            $table->string('token')->unique();
             $table->timestamps();
         });
     }
