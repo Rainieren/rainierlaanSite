@@ -19,7 +19,7 @@ class CreatePackagesTable extends Migration
             $table->string('creator');
             $table->longText('description');
             $table->integer('subscription_id')->nullable();
-            $table->double('price')->nullable();
+            $table->string('price')->nullable();
             $table->string('composer_package');
             $table->integer('downloads')->default(0);
             $table->integer('category_id')->nullable();

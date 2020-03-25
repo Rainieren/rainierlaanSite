@@ -17,6 +17,9 @@ class Package extends Model
         return $this->hasMany(\App\Subscription::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function users()
     {
         return $this->belongsToMany(User::class);

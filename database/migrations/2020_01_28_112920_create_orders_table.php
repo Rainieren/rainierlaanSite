@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('owner_type');
             $table->unsignedBigInteger('owner_id');
             $table->string('number');
-            $table->string('currency', 3);
+            $table->string('currency', 3)->nullable();
             $table->integer('subtotal');
             $table->integer('tax');
             $table->integer('total');

@@ -35,11 +35,7 @@ class SubscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::find(1);
 
-        $result = $user->newSubscription('main', 'pro')->create();
-
-        return back();
     }
 
     /**

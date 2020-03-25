@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Package;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Mollie\Laravel\Facades\Mollie;
-use Spatie\Packagist\Packagist;
 
-class PackagesController extends Controller
+class OrderItemController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * @throws \Exception
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -85,27 +80,5 @@ class PackagesController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function get()
-    {
-        $csrf = json_encode(csrf_token());
-        return response()
-            ->json([Package::all(),  $csrf]);
-    }
-
-    /**
-     * @param Request $request
-     * @param $id
-     * @return string
-     * @throws \Mollie\Api\Exceptions\ApiException
-     */
-
-    public function purchased()
-    {
-        return view('packages.purchase-success');
     }
 }
